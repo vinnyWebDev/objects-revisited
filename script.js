@@ -25,7 +25,6 @@ function isEmpty(userObj) {
     return false;
   }
 }
-
 console.log(isEmpty(empty));
 
 //another way of achieveing the same outcome
@@ -38,19 +37,10 @@ function isEmpty(obj) {
 }
 
 /*Write the code to sum all salaries and store in the variable sum. If salaries is empty, then the result must be 0.*/
-let salaries = {
-  John: 100,
-  Ann: 160,
-  Pete: 130,
-};
+let salaries = {};
 
 function sumObj(obj) {
   let total = 0;
-  //if the object is empty return 0
-  if (Object.keys(obj).length == 0) {
-    console.log(total);
-    return total;
-  }
   for (let key in obj) {
     /*Access the property value using square bracket notation
     it has to be brackets in order for this to be dynamic.
@@ -61,3 +51,24 @@ function sumObj(obj) {
   console.log(total);
 }
 sumObj(salaries);
+
+/*Create a function multiplyNumeric(obj) that multiplies all numeric property values of obj by 2. */
+
+// before the call
+let menu = {
+  width: 200,
+  height: 100,
+  title: "My menu",
+};
+
+function multiplyNumeric(obj) {
+  for (let key in obj) {
+    //check if we're dealing with a numeric value
+    if (typeof obj[key] == "number") {
+      console.log(obj[key] * 2);
+      obj[key] = obj[key] * 2;
+    }
+  }
+}
+multiplyNumeric(menu);
+console.log(menu);
